@@ -1,0 +1,160 @@
+body {
+    font-family: "Jost", sans-serif;
+    background-color: #f3f3f3;
+    margin-top: 5%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+  
+h1 {
+    text-align: center;
+    font-size: 2em;
+    color: #6c2bed;
+}
+  
+form {
+    width: 70%;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+  
+label {
+    display: block;
+    font-size: 20px;
+    margin: 0 0 10px;
+    color: #7B68EE;
+}
+
+input {
+    display: inline-block;
+    margin: 0 0 10px;
+    padding: 10px 10px; 
+    width: 34%; 
+    height: 40px;
+    border-radius: 8px;
+    border: 2px solid #6666FF;
+    outline: none;
+    transition: 200ms ease-in;
+    box-sizing: border-box;
+
+}
+
+input:focus {
+    border-bottom: 4px solid #6666FF;
+}
+  
+input::placeholder {
+    color: #6666FF;
+    opacity: 0.5;
+}
+  
+button {
+    background: #7B68EE;
+    color: white;
+    font-weight: bold;
+    font-family: "Jost";
+    width: 19.1%;
+    font-size: medium;
+    border: none;
+    border-radius: 5px;
+    padding: 6px 25px;
+    margin: 0 0 10px;
+    cursor: pointer;
+}
+  
+button:hover {
+    background: #8A2BE2;
+}
+  
+  
+ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+  
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    position: relative;
+    background-color: #d2d2ff;
+    margin-left: 24%;
+    margin-right: 24%;
+}
+
+#tabelaCompras {
+    width: 100%;
+    margin: 8px auto;
+    border-collapse: collapse;
+}
+  
+#tabelaCompras th, #tabelaCompras td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+  
+#tabelaCompras th {
+    background: #7B68EE;
+    color: white;
+}
+  
+#tabelaCompras td {
+    background: #fff;
+}
+  
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"] + label {
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+input[type="checkbox"] + label:before {
+    content: '';
+    position: absolute;
+    left: 3px;
+    top: -8px;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #6666FF;
+    background-color: #f3f3f3;
+    border-radius: 5px; 
+}
+
+input[type="checkbox"]:checked + label:after {
+    content: '✔';
+    position: absolute;
+    top: -10px; 
+    left: 7px;
+    color: #7B68EE;
+}
+
+.botaoRemover {
+    background-color: #7B68EE;
+    padding-top: 10px; 
+    padding-bottom: 10px; 
+    padding-left: 20px; 
+    padding-right: 76px;
+    color: white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
