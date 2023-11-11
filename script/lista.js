@@ -7,12 +7,12 @@ class Lista {
         this.itens.push(item);
     }
 
-    removerItem(item) {
-        const index = this.itens.indexOf(item);
+    removerItem(id) {
+        const index = this.itens.findIndex(item => item.codigoBarras === Number(id));
         if (index !== -1) {
             this.itens.splice(index, 1);
         }
-    }
+    }     
 
     mostrarLista() {
         this.itens.forEach(item => {

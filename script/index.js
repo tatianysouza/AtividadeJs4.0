@@ -6,12 +6,12 @@ document.getElementById('adicionar').addEventListener('click', function(event) {
     event.preventDefault();    
     let nome = document.getElementById('nome').value;
     let valor = parseFloat(document.getElementById('valor').value);
-
-    let item = {nome: nome, valor: valor};
+    let item = {codigoBarras: Date.now(), nome: nome, valor: valor, comprado: false};
     minhaLista.adicionarItem(item);
 
     document.getElementById('nome').value = '';
     document.getElementById('valor').value = '';
+    minhaLista.mostrarLista();
     AtualizarTabela();
 });
 
@@ -24,21 +24,41 @@ function AtualizarTabela() {
         let preco = linha.insertCell(1);
         let checkboxCell = linha.insertCell(2); 
 
-        let checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        checkbox.id = 'meuCheckbox' + tabela.rows.length; 
-        let label = document.createElement('label');
-        label.htmlFor = checkbox.id;
+        let { checkbox, label } = criarCheckbox(tabela);
+        checkbox.checked = compras.comprado;
+        checkbox.addEventListener('change', function() {
+            compras.comprado = this.checked;
+        });
         checkboxCell.appendChild(checkbox);
         checkboxCell.appendChild(label);
 
         let botaoCell = linha.insertCell(3);
-        let botao = document.createElement('button');
-        botao.textContent = "Remover";
-        botao.classList.add('botaoRemover');
+        let botao = criarBotao();
+        botao.dataset.id = compras.codigoBarras;
+        botao.addEventListener('click', function() {
+            minhaLista.removerItem(this.dataset.id);
+            AtualizarTabela();
+        });
+        
         botaoCell.appendChild(botao);
 
         produto.textContent = compras.nome;
         preco.textContent = compras.valor.toFixed(2);
     }
-} 
+}
+
+function criarBotao() {
+    let botao = document.createElement('button');
+    botao.textContent = "Remover";
+    botao.classList.add('botaoRemover');
+    return botao;
+}
+
+function criarCheckbox(tabela) {
+    let checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.id = 'meuCheckbox' + tabela.rows.length; 
+    let label = document.createElement('label');
+    label.htmlFor = checkbox.id;
+    return { checkbox, label };
+}
