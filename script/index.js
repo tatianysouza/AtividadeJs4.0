@@ -36,9 +36,9 @@ function AtualizarTabela() {
         let botao = criarBotao();
         botao.dataset.id = compras.codigoBarras;
         botao.addEventListener('click', function() {
-            minhaLista.removerItem(this.dataset.id);
+            minhaLista.removerItem(compras);
             AtualizarTabela();
-        });
+        });        
         
         botaoCell.appendChild(botao);
 
