@@ -15,7 +15,23 @@ class Lista {
         localStorage.setItem('itens', JSON.stringify(this.itens));
     }        
 
-    mostrarLista() {
+    marcarItem(item) {
+        const itemLista = this.itens.find(i => i.codigoBarras === item.codigoBarras);
+        if (itemLista) {
+            itemLista.comprado = true;
+        }
+        localStorage.setItem('itens', JSON.stringify(this.itens));
+    }
+
+    desmarcarItem(item) {
+        const itemLista = this.itens.find(i => i.codigoBarras === item.codigoBarras);
+        if (itemLista) {
+            itemLista.comprado = false;
+        }
+        localStorage.setItem('itens', JSON.stringify(this.itens));
+    }
+
+    listar() {
         this.itens.forEach(item => {
             console.log(item);
         });

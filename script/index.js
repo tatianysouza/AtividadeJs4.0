@@ -20,10 +20,9 @@ document.getElementById('adicionar').addEventListener('click', function(event) {
 
     document.getElementById('nome').value = '';
     document.getElementById('valor').value = '';
-    minhaLista.mostrarLista();
+    minhaLista.listar();
     AtualizarTabela();
 });
-
 
 function AtualizarTabela() {
     let tabela = document.getElementById('tabelaCompras').getElementsByTagName('tbody')[0];
@@ -37,7 +36,11 @@ function AtualizarTabela() {
         let { checkbox, label } = criarCheckbox(tabela);
         checkbox.checked = compras.comprado;
         checkbox.addEventListener('change', function() {
-            compras.comprado = this.checked;
+            if (this.checked) {
+                minhaLista.marcar(compras);
+            } else {
+                minhaLista.desmarcar(compras);
+            }
         });
         checkboxCell.appendChild(checkbox);
         checkboxCell.appendChild(label);
