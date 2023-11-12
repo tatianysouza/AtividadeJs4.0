@@ -37,9 +37,9 @@ function AtualizarTabela() {
         checkbox.checked = compras.comprado;
         checkbox.addEventListener('change', function() {
             if (this.checked) {
-                minhaLista.marcar(compras);
+                minhaLista.marcarItem(compras);
             } else {
-                minhaLista.desmarcar(compras);
+                minhaLista.desmarcarItem(compras);
             }
         });
         checkboxCell.appendChild(checkbox);
