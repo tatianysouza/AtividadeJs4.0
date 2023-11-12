@@ -12,6 +12,7 @@ class Lista {
         if (index !== -1) {
             this.itens.splice(index, 1);
         }
+        localStorage.setItem('itens', JSON.stringify(this.itens));
     }        
 
     mostrarLista() {
